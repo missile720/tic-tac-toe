@@ -36,10 +36,7 @@ function userClick(event){
     board[number-1] = 1;
 
     //check win condition
-    winCondition();
-
-    //function runs for computer
-    computerClick(width);
+    winCondition(width);
 }
 
 function computerClick(width){
@@ -92,7 +89,7 @@ function computerClick(width){
 }
 
 //function runs to see if user wins
-function winCondition(){
+function winCondition(width){
     //init all wins conditions
     let row0 = 0;
     let row1 = 0;
@@ -159,6 +156,10 @@ function winCondition(){
     if(row0 === 3 || row1 === 3 || row2 === 3 || col0 === 3 || col1 === 3 || col2 === 3 || cross0 === 3 || cross1 === 3){
         myModal.toggle();
         document.getElementById("winner").innerHTML = "You win!!!! :D";
+    }
+    else{
+        //function runs for computer
+        computerClick(width);
     }
 }
 
