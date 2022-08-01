@@ -37,10 +37,10 @@ html, body{
     cursor: pointer;
 }
 
-.box1, .box4, .box7, .box2, .box5, .box8{
+#box1, #box4, #box7, #box2, #box5, #box8{
     border-right: solid 10px black;
 }
 
-.box1, .box2, .box3, .box4, .box5, .box6{
+#box1, #box2, #box3, #box4, #box5, #box6{
     border-bottom: solid 10px black;
 }
