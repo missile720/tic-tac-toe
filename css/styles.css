@@ -37,10 +37,24 @@ html, body{
     cursor: pointer;
 }
 
-.box1, .box4, .box7, .box2, .box5, .box8{
+#box1, #box4, #box7, #box2, #box5, #box8{
     border-right: solid 10px black;
 }
 
-.box1, .box2, .box3, .box4, .box5, .box6{
+#box1, #box2, #box3, #box4, #box5, #box6{
     border-bottom: solid 10px black;
+}
+
+#reset{
+    margin-top: 30px;
+    background-color:rgba(255, 255, 255, 0.1);
+    padding: 3px;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#reset:hover{
+    background-color:rgba(40,184,175,0.9864320728291317);
+    mix-blend-mode: lighten;
 }
