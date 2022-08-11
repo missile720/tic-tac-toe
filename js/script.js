@@ -1,8 +1,10 @@
 let board = [null,null,null,null,null,null,null,null,null];
+//default level to easy
+let level = "Easy";
 
-initialize();
+initialize(level);
 
-function initialize(){
+function initialize(levels){
     //selects all spaces
     let spaces = document.querySelectorAll(".space");
 
@@ -10,6 +12,8 @@ function initialize(){
     for(let i = 0; i < spaces.length; i++){
         spaces[i].addEventListener("click", userClick);
     }
+
+    document.querySelector(".level").innerHTML = levels;
 }
 
 //creates connection from js to html modal
@@ -40,51 +44,60 @@ function userClick(event){
 }
 
 function computerClick(width){
-    let check = true;
-    while(check){
-        let j = 0;
-        //selects random number from 1-9
-        let num = Math.ceil(Math.random() * 9);
-        //stores whats inside element
-        let text = document.querySelector(`#box${num}`).innerHTML;
-        //checks if element is empty
-        if(text === ""){
-            //if empty fills in with O
-            document.querySelector(`#box${num}`).innerHTML = `<img src="./img/o.png" width="${width}px" height="${width}px">`;
-            //remove event listener
-            document.querySelector(`#box${num}`).removeEventListener("click", userClick);
-            
 
-            //grabs elements id
-            let identity = num;
-            //sets board to 0
-            board[identity-1] = 0;
-
-            //check win condition for computer
-            winConditionComputer();
-            
-            //breaks loop
-            check = false;
-        }
-        
-        //selects all spaces
-        let spaces = document.querySelectorAll(".space");
-
-        //loops through all spaces and checks
-        for(let i = 0; i < spaces.length; i++){
+    if(level === "Easy"){
+        let check = true;
+        while(check){
+            let j = 0;
+            //selects random number from 1-9
+            let num = Math.ceil(Math.random() * 9);
             //stores whats inside element
-            let checkEmpty = spaces[i].innerHTML;
-
-            //if not empty adds to counter
-            if(checkEmpty !== ""){
-                j++
+            let text = document.querySelector(`#box${num}`).innerHTML;
+            //checks if element is empty
+            if(text === ""){
+                //if empty fills in with O
+                document.querySelector(`#box${num}`).innerHTML = `<img src="./img/o.png" width="${width}px" height="${width}px">`;
+                //remove event listener
+                document.querySelector(`#box${num}`).removeEventListener("click", userClick);
+                
+    
+                //grabs elements id
+                let identity = num;
+                //sets board to 0
+                board[identity-1] = 0;
+    
+                //check win condition for computer
+                winConditionComputer();
+                
+                //breaks loop
+                check = false;
+            }
+            
+            //selects all spaces
+            let spaces = document.querySelectorAll(".space");
+    
+            //loops through all spaces and checks
+            for(let i = 0; i < spaces.length; i++){
+                //stores whats inside element
+                let checkEmpty = spaces[i].innerHTML;
+    
+                //if not empty adds to counter
+                if(checkEmpty !== ""){
+                    j++
+                }
+            }
+    
+            //if counter is greater than 8 then breaks while loop
+            if(j > 8){
+                check = false;
             }
         }
+    }
+    else if(level === "Medium"){
 
-        //if counter is greater than 8 then breaks while loop
-        if(j > 8){
-            check = false;
-        }
+    }
+    else if(level === "Hard"){
+
     }
 }
 
@@ -233,13 +246,19 @@ function winConditionComputer(){
     }
 }
 
-//dom that executes when user clicks on the reset button
-document.getElementById("reset").onclick = function(){reset()};
-document.getElementById("reset1").onclick = function(){reset()};
-document.getElementById("reset2").onclick = function(){reset()};
+//dom that executes when user clicks on the reset button with level
+document.getElementById("resetEasy").onclick = function(){reset("Easy")};
+document.getElementById("resetMedium").onclick = function(){reset("Medium")};
+document.getElementById("resetHard").onclick = function(){reset("Hard")};
+
+//resets that occur on win or lose keeping the current level difficulty
+document.getElementById("reset1").onclick = function(){reset(level)};
+document.getElementById("reset2").onclick = function(){reset(level)};
 
 //resets the game
-function reset(){
+function reset(levels){
+    //sets level to current selected level by button
+    level = levels;
     board = [null,null,null,null,null,null,null,null,null];
 
     //selects all spaces
@@ -252,5 +271,5 @@ function reset(){
     }
 
     //runs initial set up code
-    initialize();
+    initialize(level);
 }
