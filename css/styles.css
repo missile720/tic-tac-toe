@@ -6,7 +6,7 @@ html, body{
 .bodyContainer{
     display: flex;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: column;
     background: rgb(144,37,173);
     background: linear-gradient(0deg, rgba(144,37,173,1) 0%, rgba(22,61,196,0.9864320728291317) 48%, rgba(40,184,175,0.9864320728291317) 96%);
