@@ -6,7 +6,7 @@ html, body{
 .bodyContainer{
     display: flex;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: column;
     background: rgb(144,37,173);
     background: linear-gradient(0deg, rgba(144,37,173,1) 0%, rgba(22,61,196,0.9864320728291317) 48%, rgba(40,184,175,0.9864320728291317) 96%);
@@ -45,8 +45,20 @@ html, body{
     border-bottom: solid 10px black;
 }
 
-#reset{
-    margin-top: 30px;
+.resetButtons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset{
+    margin-top: 10px;
+}
+
+#resetEasy, #resetMedium, #resetHard{
+    margin-top: 20px;
+    margin: 10px;
     background-color:rgba(255, 255, 255, 0.1);
     padding: 3px;
     border: none;
@@ -54,7 +66,7 @@ html, body{
     font-size: 20px;
 }
 
-#reset:hover{
+#resetEasy:hover, #resetMedium:hover, #resetHard:hover{
     background-color:rgba(40,184,175,0.9864320728291317);
     mix-blend-mode: lighten;
 }

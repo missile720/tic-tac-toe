@@ -26,6 +26,7 @@
 <body>
     <div class="bodyContainer">
         <h1 class="title">Tic-Tac-Toe</h1>
+        <h1 class="level"></h1>
         <div class="board">
             <div class="space" id="box1"></div>
             <div class="space" id="box2"></div>
@@ -37,7 +38,16 @@
             <div class="space" id="box8"></div>
             <div class="space" id="box9"></div>
         </div>
-        <button id="reset">Reset Game</button>
+        <div class="resetButtons">
+            <h1 class="reset">Reset:</h1>
+            <div class="buttons">
+                <button id="resetEasy">Easy</button>
+                <button id="resetMedium">Medium</button>
+                <button id="resetHard">Impossible</button>
+            </div>
+            
+        </div>
+        
     </div>
 
     <!-- Modal -->
@@ -46,14 +56,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Game Over!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                        id="reset2"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="reset2"></button>
                 </div>
                 <div class="modal-body">
                     <h5><span id="winner"></span></h5>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="reset1">Reset</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="reset1">Close</button>
                 </div>
             </div>
         </div>
