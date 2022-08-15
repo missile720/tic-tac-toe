@@ -8,8 +8,21 @@ html, body{
     align-items: center;
     min-height: 100vh;
     flex-direction: column;
+}
+
+.bodyContainerEasy{
     background: rgb(144,37,173);
     background: linear-gradient(0deg, rgba(144,37,173,1) 0%, rgba(22,61,196,0.9864320728291317) 48%, rgba(40,184,175,0.9864320728291317) 96%);
+}
+
+.bodyContainerMedium{
+    background: rgb(255,188,0);
+    background: linear-gradient(0deg, rgba(255,188,0,1) 0%, rgba(245,255,0,0.9864320728291317) 50%, rgba(17,245,0,0.9864320728291317) 100%);
+}
+
+.bodyContainerImpossible{
+    background: rgb(201,0,255);
+    background: linear-gradient(0deg, rgba(201,0,255,1) 0%, rgba(255,0,194,0.9864320728291317) 50%, rgba(245,0,0,0.9864320728291317) 100%);
 }
 
 .title{
@@ -22,7 +35,7 @@ html, body{
 .board{
     width: 500px;
     height: 500px;
-    background-color:rgba(255, 255, 255, 0.1);
+    background-color:rgba(255, 255, 255, 0.3);
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
@@ -36,6 +49,17 @@ html, body{
     align-items: center;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    .space{
+        width: 100px;
+        height: 100px;
+    }
+    .board{
+        width: 320px;
+        height: 320px;
+    }
+  }
 
 #box1, #box4, #box7, #box2, #box5, #box8{
     border-right: solid 10px black;
@@ -59,7 +83,7 @@ html, body{
 #resetEasy, #resetMedium, #resetHard{
     margin-top: 20px;
     margin: 10px;
-    background-color:rgba(255, 255, 255, 0.1);
+    background-color:rgba(255, 255, 255, 0.3);
     padding: 3px;
     border: none;
     font-weight: bold;
@@ -67,6 +91,7 @@ html, body{
 }
 
 #resetEasy:hover, #resetMedium:hover, #resetHard:hover{
-    background-color:rgba(40,184,175,0.9864320728291317);
+    background-color:rgba(0, 0, 0, 0.986);
     mix-blend-mode: lighten;
+    color: white;
 }
