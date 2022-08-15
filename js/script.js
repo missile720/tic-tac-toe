@@ -16,8 +16,10 @@ function initialize(levels){
         spaces[i].addEventListener("click", userClick);
     }
 
+    //displays level to user
     document.querySelector(".level").innerHTML = levels;
 
+    //changes background gradient based on level
     if(levels === "Easy"){
         document.querySelector(".bodyContainer").classList.remove("bodyContainerImpossible");
         document.querySelector(".bodyContainer").classList.remove("bodyContainerMedium");
@@ -64,6 +66,7 @@ function userClick(event){
 
 function computerClick(width){
     computerTurn++;
+    //computer logic randomly places on board during easy level
     if(level === "Easy"){
         let check = true;
         while(check){
@@ -111,6 +114,7 @@ function computerClick(width){
             }
         }
     }
+    //medium level computer logic blocks user from winning but still winable using strategy
     else if(level === "Medium"){
         //row 1
         if(board[0] === null && board[1] === 1 && board[2] === 1){
@@ -439,6 +443,7 @@ function computerClick(width){
             }
         }
     }
+    //computer blocks all possible strategies so user can never win
     else if(level === "Impossible"){
         //computers first turn and center not taken
         if(board[4] === null && computerTurn === 1){
