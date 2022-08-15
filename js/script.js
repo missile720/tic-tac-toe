@@ -17,6 +17,22 @@ function initialize(levels){
     }
 
     document.querySelector(".level").innerHTML = levels;
+
+    if(levels === "Easy"){
+        document.querySelector(".bodyContainer").classList.remove("bodyContainerImpossible");
+        document.querySelector(".bodyContainer").classList.remove("bodyContainerMedium");
+        document.querySelector(".bodyContainer").classList.add("bodyContainerEasy");
+    }
+    else if(levels === "Medium"){
+        document.querySelector(".bodyContainer").classList.remove("bodyContainerEasy");
+        document.querySelector(".bodyContainer").classList.remove("bodyContainerImpossible");
+        document.querySelector(".bodyContainer").classList.add("bodyContainerMedium");
+    }
+    else{
+        document.querySelector(".bodyContainer").classList.remove("bodyContainerEasy");
+        document.querySelector(".bodyContainer").classList.remove("bodyContainerMedium");
+        document.querySelector(".bodyContainer").classList.add("bodyContainerImpossible");
+    }
 }
 
 //creates connection from js to html modal
