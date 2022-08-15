@@ -50,6 +50,17 @@ html, body{
     cursor: pointer;
 }
 
+@media only screen and (max-width: 600px) {
+    .space{
+        width: 100px;
+        height: 100px;
+    }
+    .board{
+        width: 320px;
+        height: 320px;
+    }
+  }
+
 #box1, #box4, #box7, #box2, #box5, #box8{
     border-right: solid 10px black;
 }
